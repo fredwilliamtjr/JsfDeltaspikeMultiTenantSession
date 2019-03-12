@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+
+
+<h:head>
+    <title>Primefaces Google Charts</title>
+</h:head>
+
+<h:body>
+    <p:panel id="panel" header="Google Chart Colunas">
+        <h:form>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js" />
+            <script type="text/javascript">
+                google.charts.load("current", {packages: ["corechart"]});
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+
+                    var dataDoBean = google.visualization.arrayToDataTable( #{graficoGoogleChartColunaBean.dados} );
+
+                    var formatter = new google.visualization.NumberFormat({ prefix: '',decimalSymbol: ',', groupingSymbol: '.' });
+                    formatter.format(dataDoBean, 1);
+
+                    var view = new google.visualization.DataView(dataDoBean);
+                    view.setColumns([0, 1,
+                        {
+                            calc: "stringify",
+                            sourceColumn: 1,
+                            type: "string",
+                            role: "annotation"
+                        },
+                        2]);
+
+                    var options = {
+                        title: "Grafico de Barras",
+                        bar: {groupWidth: "95%"},
+                        legend: {position: "none"},
+                        animation:{ startup: true, duration: 2000, easing: 'out'}
+                    };
+                    var chart = new google.visualization.ColumnChart(document.getElementById("barchart_values"));
+                    chart.draw(view, options);
+                }
+            </script>
+            <div id="barchart_values"></div>
+            <p:commandButton value="Voltar" process="@this" action="#{graficoGoogleChartColunaBean.voltar()}"/>
+        </h:form>
+    </p:panel>
+</h:body>
+
+</html>

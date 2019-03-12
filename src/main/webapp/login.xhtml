@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<f:metadata>
+    <f:viewAction action="#{dadosSistemaBean.buscar()}"/>
+</f:metadata>
+
+
+<h:head>
+    <title>Primefaces Google Charts</title>
+</h:head>
+
+<h:body>
+    <p:panel header="Login">
+
+        <p:growl>
+            <p:autoUpdate/>
+        </p:growl>
+
+        <h:form>
+            <p:outputLabel value="#{loginBean.applicationResources.projectStage}"/>
+            <br/>
+            <p:outputLabel value="#{loginBean.applicationResources.nomeProjeto}"/>
+            <br/>
+            <p:outputLabel value="#{loginBean.applicationResources.versao}"/>
+            <br/>
+            <p:inputText id="email" placeholder="email" value="#{loginBean.email}"/>
+            <p:inputText id="senha" placeholder="senha" value="#{loginBean.senha}"/>
+            <p:commandButton value="login" process="@this email senha" action="#{loginBean.login()}" />
+            <!--oncomplete="buscaLogin()"-->
+
+            <!--<p:remoteCommand name="buscaLogin" action="{loginBean.buscaLogin()}" oncomplete="fazerLogin()"/>-->
+            <!--<p:remoteCommand name="fazerLogin" action="{loginBean.login()}"/>-->
+
+            <p:commandButton value="registra" process="@this" action="#{loginBean.registro()}" />
+            <!--oncomplete="preparaLogin()"-->
+
+            <!--<p:remoteCommand name="preparaLogin" action="{loginBean.preparaLogin()}" oncomplete="preparaUsuario()"/>-->
+            <!--<p:remoteCommand name="preparaUsuario" action="{loginBean.preparaUsuario()}"/>-->
+
+
+        </h:form>
+
+        <h:form>
+            <p:commandButton value="Buscar DadosSistema" process="@this" action="#{dadosSistemaBean.buscar()}" />
+            <p:commandButton value="Imprimir DadosSistema" process="@this" action="#{dadosSistemaBean.imprimir()}" />
+        </h:form>
+
+    </p:panel>
+</h:body>
+
+</html>

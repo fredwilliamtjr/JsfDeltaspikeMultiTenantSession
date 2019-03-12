@@ -1,0 +1,61 @@
+<pretty-config xmlns="http://ocpsoft.org/schema/rewrite-config-prettyfaces"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://ocpsoft.org/schema/rewrite-config-prettyfaces
+                      http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
+
+    <url-mapping id="login">
+        <pattern value="/login" />
+        <view-id value="/login.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="index">
+        <pattern value="/index" />
+        <view-id value="/index.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="negado">
+        <pattern value="/negado" />
+        <view-id value="/negado.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="naologado">
+        <pattern value="/naologado" />
+        <view-id value="/naologado.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="error">
+        <pattern value="/error" />
+        <view-id value="/error.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="error2">
+        <pattern value="/error2" />
+        <view-id value="/error2.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="404">
+        <pattern value="/404" />
+        <view-id value="/p404.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="dadosUsuario">
+        <pattern value="/dadosUsuario" />
+        <view-id value="/dadosUsuario.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="graficoGoogleChartBarra">
+        <pattern value="/graficoGoogleChartBarra" />
+        <view-id value="/graficoGoogleChartBarra.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="graficoGoogleChartColuna">
+        <pattern value="/graficoGoogleChartColuna" />
+        <view-id value="/graficoGoogleChartColuna.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="graficoGoogleChartPizza">
+        <pattern value="/graficoGoogleChartPizza" />
+        <view-id value="/graficoGoogleChartPizza.xhtml" />
+    </url-mapping>
+
+</pretty-config>

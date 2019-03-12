@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+
+<h:head>
+    <title>Primefaces Google Charts</title>
+</h:head>
+
+<h:body>
+    <p:panel id="panel" header="Google Chart Pizza">
+        <h:form>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js" />
+            <script type="text/javascript">
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+
+                    var dataDoBean = google.visualization.arrayToDataTable( #{graficoGoogleChartPizzaBean.dados} );
+
+                    var formatter = new google.visualization.NumberFormat({ prefix: 'R$',decimalSymbol: ',', groupingSymbol: '.' });
+                    formatter.format(dataDoBean, 1);
+
+                    var options = {
+                        title: 'Grafico de Pizza',
+                        // is3D: true,
+                    };
+
+
+                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                    chart.draw(dataDoBean, options);
+                }
+            </script>
+            <div id="piechart"  />
+            <p:commandButton value="Voltar" process="@this" action="#{graficoGoogleChartPizzaBean.voltar()}"/>
+        </h:form>
+    </p:panel>
+</h:body>
+
+</html>

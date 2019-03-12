@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ds="http://deltaspike.apache.org/jsf">
+
+<h:head>
+    <title>Primefaces Google Charts</title>
+</h:head>
+
+<h:body>
+    <p:panel header="Index">
+
+        <p:growl>
+            <p:autoUpdate/>
+        </p:growl>
+
+        <h:form>
+            <p:button value="Google Chart Barra" href="/graficoGoogleChartBarra"/>
+            <p:button value="Google Chart Coluna" href="/graficoGoogleChartColuna"/>
+            <p:button value="Google Chart Pizza" href="/graficoGoogleChartPizza"/>
+            <p:spacer width="50"/>
+            <p:commandButton value="Logout" process="@this" actionListener="#{loginBean.logout()}"/>
+            <p:spacer width="50"/>
+            <p:commandButton value="Dados Usuário" process="@this" actionListener="#{loginBean.dadosUsuario()}"/>
+            <p:spacer width="50"/>
+            <p:commandButton value="Erro" process="@this" actionListener="#{loginBean.erro()}"/>
+            <p:spacer width="50"/>
+            <p:commandButton value="Erro2" process="@this" actionListener="#{loginBean.erddro()}"/>
+            <p:spacer width="50"/>
+            <p:commandButton value="Metodo Apenas Admin" process="@this" actionListener="#{loginBean.ApenasAdmin()}"/>
+        </h:form>
+        <h:form>
+            <ds:preventDoubleSubmit/>
+            <p:commandButton value="DoubleSubmit" process="@this" update="@form" action="#{loginBean.DoubleSubmit()}"/>
+        </h:form>
+        <h:form>
+            <p:commandButton value="Buscar DadosSistema" process="@this" action="#{dadosSistemaBean.buscar()}" />
+            <p:commandButton value="Imprimir DadosSistema" process="@this" action="#{dadosSistemaBean.imprimir()}" />
+        </h:form>
+    </p:panel>
+</h:body>
+
+</html>
