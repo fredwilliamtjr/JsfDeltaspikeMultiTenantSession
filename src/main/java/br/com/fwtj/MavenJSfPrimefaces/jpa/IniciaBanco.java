@@ -16,7 +16,7 @@ public class IniciaBanco implements Serializable {
 
     @QualificadorStartup
     @Produces
-    private IniciaBanco IniciaHibernateSessionSistemaProducer() {
+    private IniciaBanco iniciaHibernateSessionSistemaProducer() {
         boolean open = sessionFactorySistema.isOpen();
         System.out.println("Iniciado HibernateSessionSistemaProducer : " + open);
         return this;
@@ -27,7 +27,7 @@ public class IniciaBanco implements Serializable {
 
     @QualificadorStartup
     @Produces
-    private IniciaBanco IniciaHibernateSessionTenantProducer() {
+    private IniciaBanco iniciaHibernateSessionTenantProducer() {
         boolean open = sessionFactoryTenant.isOpen();
         System.out.println("Iniciado HibernateSessionTenantProducer : " + open);
         return this;
